@@ -1,14 +1,15 @@
 syntax = "proto3";
-package api;
+package appleservice;
+option go_package="api/appleservice";
 
 message Apple {
 	int32 number = 1;
 	string name = 2;
-	Size size = 3;
 	enum Size{
 		SIZE_UNDEFINED = 0;
 		BIG = 4;
 		MID = 5;
 		SMALL = 6;
 	}
+	Size size = 3;
 }

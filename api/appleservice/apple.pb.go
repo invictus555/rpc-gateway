@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        v3.19.4
-// source: proto/apple.proto
+// source: apple.proto
 
-package api
+package appleservice
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -56,11 +56,11 @@ func (x Apple_Size) String() string {
 }
 
 func (Apple_Size) Descriptor() protoreflect.EnumDescriptor {
-	return file_proto_apple_proto_enumTypes[0].Descriptor()
+	return file_apple_proto_enumTypes[0].Descriptor()
 }
 
 func (Apple_Size) Type() protoreflect.EnumType {
-	return &file_proto_apple_proto_enumTypes[0]
+	return &file_apple_proto_enumTypes[0]
 }
 
 func (x Apple_Size) Number() protoreflect.EnumNumber {
@@ -69,7 +69,7 @@ func (x Apple_Size) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Apple_Size.Descriptor instead.
 func (Apple_Size) EnumDescriptor() ([]byte, []int) {
-	return file_proto_apple_proto_rawDescGZIP(), []int{0, 0}
+	return file_apple_proto_rawDescGZIP(), []int{0, 0}
 }
 
 type Apple struct {
@@ -79,13 +79,13 @@ type Apple struct {
 
 	Number int32      `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
 	Name   string     `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Size   Apple_Size `protobuf:"varint,3,opt,name=size,proto3,enum=api.Apple_Size" json:"size,omitempty"`
+	Size   Apple_Size `protobuf:"varint,3,opt,name=size,proto3,enum=appleservice.Apple_Size" json:"size,omitempty"`
 }
 
 func (x *Apple) Reset() {
 	*x = Apple{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_apple_proto_msgTypes[0]
+		mi := &file_apple_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -98,7 +98,7 @@ func (x *Apple) String() string {
 func (*Apple) ProtoMessage() {}
 
 func (x *Apple) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_apple_proto_msgTypes[0]
+	mi := &file_apple_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -111,7 +111,7 @@ func (x *Apple) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Apple.ProtoReflect.Descriptor instead.
 func (*Apple) Descriptor() ([]byte, []int) {
-	return file_proto_apple_proto_rawDescGZIP(), []int{0}
+	return file_apple_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Apple) GetNumber() int32 {
@@ -135,43 +135,45 @@ func (x *Apple) GetSize() Apple_Size {
 	return Apple_SIZE_UNDEFINED
 }
 
-var File_proto_apple_proto protoreflect.FileDescriptor
+var File_apple_proto protoreflect.FileDescriptor
 
-var file_proto_apple_proto_rawDesc = []byte{
-	0x0a, 0x11, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x61, 0x70, 0x70, 0x6c, 0x65, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x12, 0x03, 0x61, 0x70, 0x69, 0x22, 0x91, 0x01, 0x0a, 0x05, 0x41, 0x70, 0x70,
-	0x6c, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x23,
-	0x0a, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x0f, 0x2e, 0x61,
-	0x70, 0x69, 0x2e, 0x41, 0x70, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x69, 0x7a, 0x65, 0x52, 0x04, 0x73,
-	0x69, 0x7a, 0x65, 0x22, 0x37, 0x0a, 0x04, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x12, 0x0a, 0x0e, 0x53,
-	0x49, 0x5a, 0x45, 0x5f, 0x55, 0x4e, 0x44, 0x45, 0x46, 0x49, 0x4e, 0x45, 0x44, 0x10, 0x00, 0x12,
-	0x07, 0x0a, 0x03, 0x42, 0x49, 0x47, 0x10, 0x04, 0x12, 0x07, 0x0a, 0x03, 0x4d, 0x49, 0x44, 0x10,
-	0x05, 0x12, 0x09, 0x0a, 0x05, 0x53, 0x4d, 0x41, 0x4c, 0x4c, 0x10, 0x06, 0x62, 0x06, 0x70, 0x72,
+var file_apple_proto_rawDesc = []byte{
+	0x0a, 0x0b, 0x61, 0x70, 0x70, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0c, 0x61,
+	0x70, 0x70, 0x6c, 0x65, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x22, 0x9a, 0x01, 0x0a, 0x05,
+	0x41, 0x70, 0x70, 0x6c, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x12, 0x0a,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x12, 0x2c, 0x0a, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32,
+	0x18, 0x2e, 0x61, 0x70, 0x70, 0x6c, 0x65, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x41,
+	0x70, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x69, 0x7a, 0x65, 0x52, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x22,
+	0x37, 0x0a, 0x04, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x12, 0x0a, 0x0e, 0x53, 0x49, 0x5a, 0x45, 0x5f,
+	0x55, 0x4e, 0x44, 0x45, 0x46, 0x49, 0x4e, 0x45, 0x44, 0x10, 0x00, 0x12, 0x07, 0x0a, 0x03, 0x42,
+	0x49, 0x47, 0x10, 0x04, 0x12, 0x07, 0x0a, 0x03, 0x4d, 0x49, 0x44, 0x10, 0x05, 0x12, 0x09, 0x0a,
+	0x05, 0x53, 0x4d, 0x41, 0x4c, 0x4c, 0x10, 0x06, 0x42, 0x12, 0x5a, 0x10, 0x61, 0x70, 0x69, 0x2f,
+	0x61, 0x70, 0x70, 0x6c, 0x65, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x62, 0x06, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_proto_apple_proto_rawDescOnce sync.Once
-	file_proto_apple_proto_rawDescData = file_proto_apple_proto_rawDesc
+	file_apple_proto_rawDescOnce sync.Once
+	file_apple_proto_rawDescData = file_apple_proto_rawDesc
 )
 
-func file_proto_apple_proto_rawDescGZIP() []byte {
-	file_proto_apple_proto_rawDescOnce.Do(func() {
-		file_proto_apple_proto_rawDescData = protoimpl.X.CompressGZIP(file_proto_apple_proto_rawDescData)
+func file_apple_proto_rawDescGZIP() []byte {
+	file_apple_proto_rawDescOnce.Do(func() {
+		file_apple_proto_rawDescData = protoimpl.X.CompressGZIP(file_apple_proto_rawDescData)
 	})
-	return file_proto_apple_proto_rawDescData
+	return file_apple_proto_rawDescData
 }
 
-var file_proto_apple_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_proto_apple_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_proto_apple_proto_goTypes = []interface{}{
-	(Apple_Size)(0), // 0: api.Apple.Size
-	(*Apple)(nil),   // 1: api.Apple
+var file_apple_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_apple_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_apple_proto_goTypes = []interface{}{
+	(Apple_Size)(0), // 0: appleservice.Apple.Size
+	(*Apple)(nil),   // 1: appleservice.Apple
 }
-var file_proto_apple_proto_depIdxs = []int32{
-	0, // 0: api.Apple.size:type_name -> api.Apple.Size
+var file_apple_proto_depIdxs = []int32{
+	0, // 0: appleservice.Apple.size:type_name -> appleservice.Apple.Size
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -179,13 +181,13 @@ var file_proto_apple_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_proto_apple_proto_init() }
-func file_proto_apple_proto_init() {
-	if File_proto_apple_proto != nil {
+func init() { file_apple_proto_init() }
+func file_apple_proto_init() {
+	if File_apple_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_proto_apple_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_apple_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Apple); i {
 			case 0:
 				return &v.state
@@ -202,19 +204,19 @@ func file_proto_apple_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_proto_apple_proto_rawDesc,
+			RawDescriptor: file_apple_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_proto_apple_proto_goTypes,
-		DependencyIndexes: file_proto_apple_proto_depIdxs,
-		EnumInfos:         file_proto_apple_proto_enumTypes,
-		MessageInfos:      file_proto_apple_proto_msgTypes,
+		GoTypes:           file_apple_proto_goTypes,
+		DependencyIndexes: file_apple_proto_depIdxs,
+		EnumInfos:         file_apple_proto_enumTypes,
+		MessageInfos:      file_apple_proto_msgTypes,
 	}.Build()
-	File_proto_apple_proto = out.File
-	file_proto_apple_proto_rawDesc = nil
-	file_proto_apple_proto_goTypes = nil
-	file_proto_apple_proto_depIdxs = nil
+	File_apple_proto = out.File
+	file_apple_proto_rawDesc = nil
+	file_apple_proto_goTypes = nil
+	file_apple_proto_depIdxs = nil
 }

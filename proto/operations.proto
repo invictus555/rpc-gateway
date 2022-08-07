@@ -1,5 +1,7 @@
 syntax = "proto3";
-package operation;
+package appleservice;
+
+option go_package="api/appleservice";
 
 // 引入protobuf官方提供的Empty结构作为部分接口的空返回值. 
 import "google/protobuf/empty.proto";
@@ -13,7 +15,7 @@ import "google/api/annotations.proto";
 // 引入上级目录的apple文件以复用定义
 import "apple.proto";
 
-service AppleService{
+service AppleService {
     rpc DescribeApple(DescribeAppleRequest) returns (Apple) {
         option (google.api.http).get = "/apples/{number}";
     }
