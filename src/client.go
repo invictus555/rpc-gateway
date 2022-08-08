@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc/credentials"
 	"io/ioutil"
 	"log"
-	"rpc-gateway/api/service"
+	. "rpc-gateway/src/api/service"
 )
 
 const (
@@ -48,11 +48,11 @@ func main() {
 
 	defer conn.Close()
 
-	request := &service.GrpcGateWayRequest{
+	request := &GrpcGateWayRequest{
 		GoodsId: 123,
 	}
 
-	query := service.NewGrpcGateWayServiceClient(conn)                   // 2. 调用 ProdGrpcGateWay_grpc.pb.go 中的 NewGrpcGateWayServiceClient 方法建立客户端
+	query := NewGrpcGateWayServiceClient(conn)                           // 2. 调用 ProdGrpcGateWay_grpc.pb.go 中的 NewGrpcGateWayServiceClient 方法建立客户端
 	res, err := query.GetGrpcGateWayStock(context.Background(), request) // 3、调用rpc方法
 	if err != nil {
 		log.Fatal("调用gRPC方法错误: ", err)

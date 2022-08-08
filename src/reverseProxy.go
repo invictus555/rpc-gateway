@@ -61,5 +61,5 @@ func main() {
 		log.Fatalf("cannot listen and server: %v", err)
 	}
 
-	log.Println("ClientServer listen on " + serverAddr + " with TLS")
+	log.Println("httpServer listen on " + clientAddr + " with TLS")
 }

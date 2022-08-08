@@ -84,8 +84,8 @@ echo \
 "
 [ req ]
 default_bits       = 2048
-distinguished_name = req_distinguished_name  #使用 req_distinguished_name配置模块
-req_extensions     = req_ext  #使用 req_ext配置模块
+distinguished_name = req_distinguished_name     # 使用 req_distinguished_name配置模块
+req_extensions     = req_ext                    # 使用 req_ext配置模块
 
 [ req_distinguished_name ]
 countryName                 = Country Name (2 letter code)
@@ -98,10 +98,10 @@ organizationName            = Organization Name (eg, company)
 organizationName_default    = XiMu
 commonName                  = Common Name (e.g. server FQDN or YOUR name)
 commonName_max              = 64
-commonName_default          = ximu    #这里的Common Name 写主要域名即可(注意:这个域名也要在alt_names的DNS.x里) 此处尤为重要，需要用该服务名字填写到客户端的代码中
+commonName_default          = ximu    # 这里的Common Name 写主要域名即可(注意:这个域名也要在alt_names的DNS.x里) 此处尤为重要，需要用该服务名字填写到客户端的代码中
 
 [ req_ext ]
-subjectAltName = @alt_names #使用 alt_names配置模块
+subjectAltName = @alt_names # 使用 alt_names配置模块
 
 [alt_names]
 DNS.1   = localhost

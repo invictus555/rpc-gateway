@@ -47,8 +47,8 @@ func GetServeCreds() credentials.TransportCredentials {
 	return creds
 }
 
-//2、必须要实现在 ProdGrpcGateWay.proto 里声明的远程调用接口，否则客户端会报：
-//rpc error: code = Unimplemented desc = method GetGrpcGateWayStock not implemente
+// 2、必须要实现在 ProdGrpcGateWay.proto 里声明的远程调用接口，否则客户端会报：
+// rpc error: code = Unimplemented desc = method GetGrpcGateWayStock not implemente
 func (s *rpcServiceServer) GetGrpcGateWayStock(ctx context.Context, in *GrpcGateWayRequest) (*GrpcGateWayResponse, error) {
 	return &GrpcGateWayResponse{GoodsStock: in.GetGoodsId()}, nil
 }
@@ -61,6 +61,6 @@ func main() {
 		log.Fatal("服务监听端口失败", err)
 	}
 
-	log.Println("Server listen on " + serverAddr + " with TLS")
+	log.Println("rpcServer listen on " + serverAddr + " with TLS")
 	rpcServer.Serve(listen) // 4、启动服务
 }
