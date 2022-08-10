@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p conf && mkdir -p src/keys
+
 echo "-------------------------------------------生成ca根证书-------------------------------------------"
 echo \
 "[ req ]
@@ -30,8 +32,8 @@ openssl req -new -sha256 -out ca.csr -key ca.key -config conf/ca.conf
 openssl x509 -req -days 3650 -in ca.csr -signkey ca.key -out ca.pem
 
 # 拷贝证书
-cp ca.key ../src/keys/ca.key
-cp ca.pem ../src/keys/ca.pem
+cp ca.key src/keys/ca.key
+cp ca.pem src/keys/ca.pem
 
 
 echo "-------------------------------------------生成服务端证书-------------------------------------------"
@@ -75,8 +77,8 @@ openssl req -new -sha256 -out server.csr -key server.key -config conf/server.con
 openssl x509 -req -days 3650 -CA ca.pem -CAkey ca.key -CAcreateserial -in server.csr -out server.pem -extensions req_ext -extfile conf/server.conf
 
 # 拷贝证书
-cp server.key ../src/keys/server.key
-cp server.pem ../src/keys/server.pem
+cp server.key src/keys/server.key
+cp server.pem src/keys/server.pem
 
 
 echo "-------------------------------------------生成客户端证书-------------------------------------------"
@@ -120,5 +122,8 @@ openssl req -new -sha256 -out client.csr -key client.key -config conf/client.con
 openssl x509 -req -days 3650 -CA ca.pem -CAkey ca.key -CAcreateserial -in client.csr -out client.pem -extensions req_ext -extfile conf/client.conf
 
 # 拷贝证书
-cp client.key ../src/keys/client.key
-cp client.pem ../src/keys/client.pem
+cp client.key src/keys/client.key
+cp client.pem src/keys/client.pem
+
+# 清理现场
+rm *.pem *.csr *.srl *.key && rm -rf conf/
